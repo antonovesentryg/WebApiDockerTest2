@@ -1,3 +1,5 @@
+using WebApiDockerTest2.DependencyInjection;
+
 namespace WebApiDockerTest2
 {
     public class Program
@@ -5,13 +7,14 @@ namespace WebApiDockerTest2
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-
+            var services = builder.Services;
+            var configuration = builder.Configuration;
             // Add services to the container.
-
-            builder.Services.AddControllers();
+            services.AddDependencies(configuration);
+            services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-            builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+            services.AddEndpointsApiExplorer();
+            services.AddSwaggerGen();
 
             var app = builder.Build();
 
