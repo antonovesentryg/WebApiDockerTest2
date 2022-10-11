@@ -26,7 +26,6 @@ namespace WebApiDockerTest2
 
             app.UseAuthorization();
 
-
             app.MapControllers();
 
             app.Run();
