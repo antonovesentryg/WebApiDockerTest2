@@ -7,7 +7,7 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["WebApiDockerTest2/WebApiDockerTest2.csproj", "WebApiDockerTest2/"]
+COPY ["./WebApiDockerTest2/WebApiDockerTest2.csproj", "WebApiDockerTest2/"]
 RUN dotnet restore "WebApiDockerTest2/WebApiDockerTest2.csproj"
 COPY . .
 WORKDIR "/src/WebApiDockerTest2"
